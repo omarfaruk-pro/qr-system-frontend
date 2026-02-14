@@ -11,6 +11,7 @@ export default function User() {
         return null
     }
 
+    console.log(session)
     return (
         <>
             <Link href="/profile" className={`fixed top-1/2 left-0 h-15 w-15 rounded-full ${session.data ? "block" : "hidden"}`}>
@@ -18,8 +19,9 @@ export default function User() {
                     height={100}
                     width={100}
                     className="w-full h-full rounded-full"
-                    src={session?.data.user?.image ? session.user.image : userImage}
-                    alt={session?.data.user?.name}
+                    // src={(session?.data?.user?.image) ? session.data.user.image : userImage}
+                    src={session?.data?.user?.image}
+                    alt={session?.data?.user?.name}
                 />
             </Link>
         </>

@@ -44,8 +44,8 @@ export default function LoginForm() {
                     const retryAfter = response.headers.get("X-Retry-After");
                     console.log(`Rate limit exceeded. Retry after ${retryAfter} seconds`);
                     Swal.fire({
-                        icon:"warning",
-                        text:`Rate limit exceeded. Retry after ${retryAfter} seconds`
+                        icon: "warning",
+                        text: `Rate limit exceeded. Retry after ${retryAfter} seconds`
                     })
                 } else if (ctx.error.status === 403) {
                     Swal.fire({
@@ -101,7 +101,7 @@ export default function LoginForm() {
     }
     return (
         <>
-            <div className="bg-white rounded-lg overflow-hidden shadow-2xl max-w-md w-full mx-auto">
+            <div className="bg-white rounded-lg overflow-hidden shadow-2xl max-w-lg w-full mx-auto">
                 <div className="p-8">
                     <form className="" onSubmit={handleLogin}>
                         <div className="mb-5">

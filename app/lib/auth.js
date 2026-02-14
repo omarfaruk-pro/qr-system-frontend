@@ -2,7 +2,7 @@ import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { sendEmail } from "./mailSender";
-const client = new MongoClient(`${process.env.MONGO_URI}/test`);
+const client = new MongoClient(`${process.env.MONGO_URI}/qr_system`);
 await client.connect();
 const db = client.db();
 
@@ -22,11 +22,11 @@ export const auth = betterAuth({
       })
     }
   },
-  rateLimit: {
-    enabled: true,
-    window: 60,
-    max: 10,
-  },
+  // rateLimit: {
+  //   enabled: true,
+  //   window: 60,
+  //   max: 10,
+  // },
 
   emailAndPassword: {
     enabled: true,

@@ -1,6 +1,7 @@
 "use client"
 import Link from 'next/link'
 import { signOut, useSession } from '../lib/auth-client'
+import Image from 'next/image'
 
 export default function Header() {
     const { data, isPending } = useSession()
@@ -13,7 +14,7 @@ export default function Header() {
             <header className='py-5'>
                 <div className="container mx-auto flex justify-between items-center">
                     <Link href="/" className="text-3xl font-bold uppercase text-yellow-600">
-                        OF
+                        <Image src="/logo.png" width={200} height={160} alt="logo" className='w-20 rounded-sm' loading="eager" />
                     </Link>
                     <div className='flex items-center gap-5'>
                         {
