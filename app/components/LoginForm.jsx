@@ -38,11 +38,9 @@ export default function LoginForm() {
             },
             onError: (ctx) => {
                 setLoading(false)
-                console.log("error from login page", ctx)
                 const { response } = ctx;
                 if (response.status === 429) {
                     const retryAfter = response.headers.get("X-Retry-After");
-                    console.log(`Rate limit exceeded. Retry after ${retryAfter} seconds`);
                     Swal.fire({
                         icon: "warning",
                         text: `Rate limit exceeded. Retry after ${retryAfter} seconds`
@@ -89,7 +87,6 @@ export default function LoginForm() {
                     })
                 },
                 onError: (ctx) => {
-                    console.log(ctx)
                     Swal.fire({
                         icon: "error",
                         text: ctx.error.message

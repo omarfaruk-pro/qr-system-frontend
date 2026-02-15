@@ -11,7 +11,6 @@ export default function User() {
         return null
     }
 
-    console.log(session)
     return (
         <>
             <Link href="/profile" className={`fixed top-1/2 left-0 h-15 w-15 rounded-full ${session.data ? "block" : "hidden"}`}>

@@ -33,7 +33,7 @@ export default async function ProfilePage() {
                     <div className="grid grid-cols-4 gap-3 mt-5">
                         {(data.success && data.count > 0) ? (
                             data.data.map(qr => (
-                                <div key={qr.id} className=" rounded-lg shadow-md">
+                                <div key={qr._id} className=" rounded-lg shadow-md">
                                     <a
                                         href={`data:image/png;base64,${qr.qr_base64}`}
                                         download={`qr-code-${new Date().getTime()}.png`}

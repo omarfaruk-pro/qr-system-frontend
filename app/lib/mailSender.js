@@ -8,11 +8,10 @@ export async function sendEmail({ to, subject, text }) {
     from: "auth@web-themes.xyz",
     to,
     subject,
-    html:text
+    html: text
   });
 
   if (error) {
-    console.error("Resend error:", error);
     throw error;
   }
 }

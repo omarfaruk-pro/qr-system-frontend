@@ -9,8 +9,10 @@ export default function GenerateQr() {
     const [urlInput, setUrlInput] = useState('');
     const [qrImg, setQrImg] = useState();
     const session = useSession();
+    const [loading, setLoading] = useState(false);
 
     const generate = () => {
+        setLoading(true);
         fetch(`${process.env.NEXT_PUBLIC_API}/generate-qr`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -21,6 +23,7 @@ export default function GenerateQr() {
                 if (data.success) {
                     setUrlInput('');
                     setQrImg(data.qr_base64);
+                    setLoading(false);
                 }
             })
     }
@@ -48,7 +51,10 @@ export default function GenerateQr() {
             }
 
         } catch (err) {
-            console.log("Share failed:", err);
+            Swal.fire({
+                icon: "error",
+                title: "Something went wrong",
+            })
         }
     };
 
@@ -78,7 +84,7 @@ export default function GenerateQr() {
                         Share
                     </button>
                 </div>
-                ) : <button type="button" disabled={!urlInput} className="button" onClick={generate}>Generate QR Code</button>
+                ) : <button type="button" disabled={!urlInput || loading} className="button" onClick={generate}>Generate QR Code</button>
             }
 
         </>
