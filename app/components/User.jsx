@@ -19,8 +19,7 @@ export default function User() {
                     height={100}
                     width={100}
                     className="w-full h-full rounded-full"
-                    // src={(session?.data?.user?.image) ? session.data.user.image : userImage}
-                    src={session?.data?.user?.image}
+                    src={(session?.data?.user?.image) ? session.data.user.image : userImage}
                     alt={session?.data?.user?.name}
                 />
             </Link>

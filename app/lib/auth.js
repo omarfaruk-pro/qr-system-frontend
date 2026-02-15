@@ -2,9 +2,9 @@ import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { sendEmail } from "./mailSender";
-const client = new MongoClient(`${process.env.MONGO_URI}/qr_system`);
+const client = new MongoClient(process.env.MONGO_URI);
 await client.connect();
-const db = client.db();
+const db = client.db("qr_system");
 
 
 
